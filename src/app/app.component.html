@@ -1,0 +1,78 @@
+<div class="bgstyle" style="background-color: rgb(232, 238, 241);width:100%" class="row" >
+  <div class=body1 >
+      <div class="mainpanel" >
+          <svg class="heading1" preserveAspectRatio="none" viewBox="0 0 500 160">
+            <path d="M 0,0 L -10,25 Q250,90 510,25 L 510,-10"></path>
+          </svg>
+          <div  style="text-align:center;font-size: 21px; margin-top: -31%;color: white">YOYO PIZZA BOT</div>
+      </div>
+      <div class="panel-body" >
+        <div #scrollMe [scrollTop]="scrollMe.scrollHeight" class="chat" >
+          <div *ngFor="let replies of reply" [ngClass]="{'right':replies.self==='user','left':replies.self!=='user'}">
+            <!-- [ngClass]="{'text': replies.self==='user','text':replies.self==='bot'}" -->
+              {{replies.text}}
+              <!-- <div *ngIf="replies.rows==='single'; then panel" ></div> -->
+              <!-- <ng-template #panel >
+                  <div class="panel panel-primary cardshadow" >
+                      <div class="panel-heading singlecard ">
+                          {{replies.firstname}} {{replies.lastname}}
+                      </div>
+                      <div class="panel-body" >
+                        <div>
+                            <p> {{replies.mobile}} </p>
+                            <p> {{replies.email}} </p>
+                            <p> {{replies.alternate}} </p>
+                            <p> {{replies.city}} </p>
+                            <p> {{replies.office}} </p>
+                        </div>
+                      </div>
+                    </div>
+              </ng-template> -->
+              <!-- <div *ngIf="replies.rows==='multiple'; then panel1" ></div> -->
+              <!-- <ng-template #panel1 >
+                  <div class="panel panel-primary cardshadow ">
+                      <div (click)="opening(replies.random)" class="panel-heading multiplecard ">
+                        <div>{{replies.firstname}} {{replies.lastname}}<p style="font-size: 11px" >Click Here</p></div>
+                      </div>
+                      <div class="panel-body" >
+                        <div (click)="closing(replies.random)" id="{{replies.random}}" style="display:none" >
+                            <p> {{replies.mobile}} </p>
+                            <p> {{replies.email}} </p>
+                            <p> {{replies.alternate}} </p>
+                            <p> {{replies.city}} </p>
+                            <p> {{replies.office}} </p>
+                        </div>
+                      </div>
+                    </div>
+              </ng-template> -->
+              <!-- <form>
+                  <div id="buttons">
+                      <div *ngIf="replies.option1=='Yes'; then button" ></div>
+                      <ng-template #button>
+                        <button id="sbutton" type="submit" (click)="disable(replies.option1)" onload="enable()" class="button1" >
+                            {{replies.option1}}
+                        </button>
+                        <button id="nbutton" type="submit" (click)="disable(replies.option2)" onload="enable()" class="button2" >
+                            {{replies.option2}}
+                        </button>
+                      </ng-template>
+                  </div>
+                </form> -->
+          </div>
+        </div>
+        <div>
+            <form>
+                <div class="row">
+                  <div class="col-md-9" >
+                      <input autofocus name="text" style="margin-left: 15px;margin-top: 5px;width: 350px" placeholder="Hi,Type your message here" type="text" [(ngModel)]="response" class="form-control">
+                  </div>
+                  <div class="col-md-2" >
+                      <button type="submit" style="margin-top: 5px" (click)="replyme(response)" (click)="enable()" class="btn btn-primary">SEND</button>
+                  </div>
+                  <div class="col-md-1" ></div>
+                </div>
+              </form>
+        </div>
+      </div>
+  </div>
+</div>
